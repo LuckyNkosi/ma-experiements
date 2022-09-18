@@ -1,0 +1,22 @@
+button {
+    width: 11em;
+    height: 2em;
+    color: aliceblue;
+    background-color: darkgoldenrod;
+    border-radius: 4px;
+    margin-top: 0.5em;
+}
+
+.positive{
+    background-color: darkgreen;
+    color: aliceblue;
+}
+
+.danger{
+    background-color: red;
+    color: aliceblue;
+}
+
+.center{
+    text-align: center;
+}

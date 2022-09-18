@@ -1,0 +1,9 @@
+{
+  "name": "ma-experiements",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:LuckyNkosi/ma-experiements.git",
+  "author": "Lucky Nkosi <lucky.nnkosi@gmail.com>",
+  "license": "none",
+  "private": true
+}
