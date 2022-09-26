@@ -5,5 +5,24 @@
   "repository": "git@github.com:LuckyNkosi/ma-experiements.git",
   "author": "Lucky Nkosi <lucky.nnkosi@gmail.com>",
   "license": "none",
-  "private": true
+  "private": true,
+  "scripts": {
+    "local": "NODE_ENV=local pm2-dev start index.js --raw | pino-colada",
+    "win-local": "set NODE_ENV=local&&pm2-dev start index.js --raw | pino-colada",
+    "dev": "NODE_ENV=dev pm2-dev start index.js --raw | pino-colada",
+    "win-dev": "set NODE_ENV=dev&&pm2-dev start index.js --raw | pino-colada",
+    "prod": "NODE_ENV=prod pm2-dev start index.js --raw | pino-colada",
+    "start": "pm2 start index.js --merge-logs && pm2 logs --raw"
+  },
+  "dependencies": {
+    "dotenv": "^9.0.2",
+    "express": "^4.18.1",
+    "express-http-proxy": "^1.5.1",
+    "express-pino-logger": "^6.0.0",
+    "pino-colada": "^2.1.0",
+    "pino-http": "^5.5.0"
+  },
+  "devDependencies": {
+    "pm2": "^4.5.6"
+  }
 }
