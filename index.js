@@ -5,6 +5,8 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 app.use('/drone', express.static(path.join(__dirname, 'drone')));
+app.use('/game', express.static(path.join(__dirname, 'asteroid')));
+
 app.post('/log', (req, res) => {
     console.log('here', req.body);
     logger.info(req.body);
