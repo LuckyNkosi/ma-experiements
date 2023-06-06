@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script type="module" src="./drone-control.js"></script>
+  <script type="module" src="./fruits.js"></script>
+  <script src="../manage-data.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="../logging.js" defer></script>
+  <script src="./drone-experiment.js" defer></script>
+  <title>Fruits Demo</title>
+</head>
+
+<body onkeyup="fruitTouched(event.key);">
+  <section id="technical info">
+    <p><label> userName: </label><span id="userName"></span></p>
+    <p><label> tracking: </label><span id="trackingState"></span></p>
+    <p><label> timer: </label><span id="elapsedTime"></span></p>
+  </section>
+  <h1 class="center">Welcome to the Drone Command</h1>
+  <div class="center">
+    <button type="button" class="positive center" onclick="connectToDrone()">Connect To Drone</button>
+    <button type="button" onclick="takeOff()">Take Off</button>
+    <button type="button" onclick="disconnectFromDrone()">Disconnect</button>
+  </div>
+
+  <div class="center">
+    <button type="button" onclick="hover()">Hover</button>
+    <button type="button" class="danger center" onclick="land()">Safe Land</button>
+  </div>
+  <h2 class="center">When you're ready, click start challenge below</h2>
+  <div class="center">
+    <button type="button" onclick="startExperiment()">Start Challenge</button>
+    <button type="button" class="danger center" onclick="endExperiment()">Stop Challenge</button>
+  </div>
+
+</body>
+
+</html>

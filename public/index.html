@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./manage-data.js" defer></script>
+    <title>Re-usability of cross-platform controllers</title>
+</head>
+
+<body>
+    <section id="welcome">
+        <h1>Hello and thank you for joining this study.</h1>
+        <p>Here you will be asked to play a game and then answer a few questions about your experience.</p>
+        <p>Your privacy is important and as such, we will not be recording your personal details.
+            Instead, we will use a pseudonym to group your data.</p>
+        <h3 class="existingUserFound">An Active user has been picked up on this browser. Is this
+            you?</h3>
+        <h3 class="newUser">Your use name is shown below. <br> Did you save it somewhere
+            safe?</h3>
+        <h2 id="userName"> --No Name Selected --</h2>
+    </section>
+    <section class="buttons">
+        <button type="button" onclick="getNewName()" class="existingUserFound">I'm new.</button>
+        <button type="button" onclick="start()">yes, start.</button>
+    </section>
+
+</body>
+
+</html>

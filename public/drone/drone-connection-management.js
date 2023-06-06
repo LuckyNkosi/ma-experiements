@@ -422,7 +422,7 @@ export class ParrotDrone {
         this.droneDevice.gatt.disconnect();
       }),
       (this.takeOff = function () {
-        // console.log("Take off...");
+        // if (REPORT) LogActivity('drone', 'takeOff');
         return this.droneDevice.gatt
           .connect()
           .then(() => {
@@ -453,6 +453,7 @@ export class ParrotDrone {
           .catch(this._onBluetoothError);
       }),
       (this.flip = function () {
+        // if (REPORT) LogActivity('drone', 'flip');
         // console.log("Flip...");
         return this.droneDevice.gatt
           .connect()
@@ -473,6 +474,7 @@ export class ParrotDrone {
           .catch(this._onBluetoothError);
       }),
       (this.land = function () {
+        // if (REPORT) LogActivity('drone', 'land');
         // console.log("Land...");
         return this.droneDevice.gatt
           .connect()
@@ -493,6 +495,7 @@ export class ParrotDrone {
       }),
       (this.emergencyCutOff = function () {
         console.warn("Emergency cut off!");
+        // if (REPORT) LogActivity('drone', 'emergencyCutOff');
         return this.droneDevice.gatt
           .connect()
           .then(() => {
@@ -514,24 +517,31 @@ export class ParrotDrone {
         this._hover();
       }),
       (this.moveForwards = function () {
+        // if (REPORT) LogActivity('drone', 'moveForwards');
         this._setSpeed("pitch", DEFAULT_SPEED, DEFAULT_DRIVE_STEPS);
       }),
       (this.moveBackwards = function () {
+        // if (REPORT) LogActivity('drone', 'moveBackwards');
         this._setSpeed("pitch", -DEFAULT_SPEED, DEFAULT_DRIVE_STEPS);
       }),
       (this.moveRight = function () {
+        // if (REPORT) LogActivity('drone', 'moveRight');
         // console.log("right...");
 
         this._setSpeed("roll", DEFAULT_SPEED, DEFAULT_DRIVE_STEPS);
       }),
       (this.moveLeft = function () {
+        console.log('left...', REPORT);
+        // if (REPORT) LogActivity('drone', 'moveLeft');
         // console.log("left...");
         this._setSpeed("roll", -DEFAULT_SPEED, DEFAULT_DRIVE_STEPS);
       }),
       (this.twistLeft = function () {
+        // if (REPORT) LogActivity('drone', 'twistLeft');
         this._setSpeed("yaw", -DEFAULT_SPEED, DEFAULT_DRIVE_STEPS);
       }),
       (this.twistRight = function () {
+        // if (REPORT) LogActivity('drone', 'twistRight');
         this._setSpeed("yaw", DEFAULT_SPEED, DEFAULT_DRIVE_STEPS);
       });
   }

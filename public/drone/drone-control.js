@@ -1,5 +1,4 @@
 import { ParrotDrone } from "./drone-connection-management.js";
-
 //#region  Initialisation
 // to make working with angles easy
 window.TO_RAD = Math.PI / 180;
@@ -25,12 +24,15 @@ function connectToDrone() {
   init();
 }
 function takeOff() {
+  logEvent('takeOff');
   drone.takeOff();
 }
 function land() {
+  logEvent('land');
   drone.land();
 }
 function disconnectFromDrone() {
+  logEvent('disconnectFromDrone');
   drone.land();
 }
 function hover() {

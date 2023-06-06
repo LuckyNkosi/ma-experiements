@@ -1,22 +1,36 @@
 button {
     width: 11em;
-    height: 2em;
+    height: 3em;
     color: aliceblue;
     background-color: darkgoldenrod;
     border-radius: 4px;
     margin-top: 0.5em;
 }
 
-.positive{
+section.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.positive {
     background-color: darkgreen;
     color: aliceblue;
 }
 
-.danger{
+.danger {
     background-color: red;
     color: aliceblue;
 }
 
-.center{
+.center {
     text-align: center;
+}
+
+section.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.hidden {
+    display: none;
 }
