@@ -7,6 +7,15 @@ button {
     margin-top: 0.5em;
 }
 
+.small {
+    /* width: 8em; */
+    height: 2em;
+    color: aliceblue;
+    background-color: rgb(11, 184, 40);
+    border-radius: 4px;
+    margin-top: 0.5em;
+}
+
 section.buttons {
     display: flex;
     justify-content: center;
@@ -33,4 +42,9 @@ section.buttons {
 
 .hidden {
     display: none;
+}
+
+*:disabled {
+    background-color: darkgray;
+    color: aliceblue;
 }

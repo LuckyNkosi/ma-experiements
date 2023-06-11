@@ -530,6 +530,18 @@ export class ParrotDrone {
 
         this._setSpeed("roll", DEFAULT_SPEED, DEFAULT_DRIVE_STEPS);
       }),
+      (this.moveUp = function () {
+        // if (REPORT) LogActivity('drone', 'moveRight');
+        // console.log("right...");
+
+        this._setSpeed("altitude", DEFAULT_SPEED, DEFAULT_DRIVE_STEPS);
+      }),
+      (this.moveDown = function () {
+        // if (REPORT) LogActivity('drone', 'moveRight');
+        console.log("down...");
+
+        this._setSpeed("altitude", -DEFAULT_SPEED, DEFAULT_DRIVE_STEPS);
+      }),
       (this.moveLeft = function () {
         console.log('left...', REPORT);
         // if (REPORT) LogActivity('drone', 'moveLeft');

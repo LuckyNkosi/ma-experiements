@@ -25,6 +25,7 @@ app.get('/test', async (req, res) => {
     const result = await getData('Participants');
     res.json({ res: result });
 });
+
 app.post('/addParticipant', async (req, res) => {
     const { name } = req.body;
     const result = await postData('Participants', { name });

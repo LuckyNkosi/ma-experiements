@@ -102,7 +102,7 @@ Game._onEachFrame = function () {
   if (window.RequestAnimationFrame) {
     return function (cb) {
       var _cb = function _cb() {
-        cb();window.RequestAnimationFrame(_cb);
+        cb(); window.RequestAnimationFrame(_cb);
       };
       _cb();
     };
@@ -165,10 +165,10 @@ Game.changeState = function (screen) {
 
 Game.run = function () {
   var loops = 0,
-      skipTicks = 1000 / Game.fps,
-      maxFrameSkip = 10,
-      nextGameTick = new Date().getTime(),
-      lastGameTick = void 0;
+    skipTicks = 1000 / Game.fps,
+    maxFrameSkip = 10,
+    nextGameTick = new Date().getTime(),
+    lastGameTick = void 0;
   return function () {
     loops = 0;
     while (new Date().getTime() > nextGameTick) {

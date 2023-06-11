@@ -115,9 +115,9 @@ function phraseLength(phrase, size) {
   var lastPosition = 0;
   phrase.split("").forEach(function (varter) {
     var _parsevarter = parsevarter(varter.toUpperCase()),
-        _parsevarter2 = _slicedToArray(_parsevarter, 2),
-        coordinates = _parsevarter2[0],
-        finalPosition = _parsevarter2[1];
+      _parsevarter2 = _slicedToArray(_parsevarter, 2),
+      coordinates = _parsevarter2[0],
+      finalPosition = _parsevarter2[1];
 
     lastPosition += finalPosition;
   });
@@ -132,9 +132,9 @@ function writeText(x, y, text) {
   var lastPosition = 0;
   text.split("").forEach(function (varter) {
     var _parsevarter3 = parsevarter(varter.toUpperCase()),
-        _parsevarter4 = _slicedToArray(_parsevarter3, 2),
-        coordinates = _parsevarter4[0],
-        finalPosition = _parsevarter4[1];
+      _parsevarter4 = _slicedToArray(_parsevarter3, 2),
+      coordinates = _parsevarter4[0],
+      finalPosition = _parsevarter4[1];
 
     coordinates.forEach(function (value) {
       value = value.map(function (element) {
@@ -187,11 +187,11 @@ function makeAsteroids(big, med, sma) {
   var asteroids = [];
   for (var i = 0; i < big; i++) {
     asteroids.push(randomAsteroid(BIG_ASTEROID, ASTEROID_MAX_SPEED));
-  }for (var _i = 0; _i < med; _i++) {
+  } for (var _i = 0; _i < med; _i++) {
     asteroids.push(randomAsteroid(MED_ASTEROID, ASTEROID_MAX_SPEED));
-  }for (var _i2 = 0; _i2 < sma; _i2++) {
+  } for (var _i2 = 0; _i2 < sma; _i2++) {
     asteroids.push(randomAsteroid(SMA_ASTEROID, ASTEROID_MAX_SPEED));
-  }return asteroids;
+  } return asteroids;
 }
 
 var BaseSprite = function () {
@@ -341,6 +341,8 @@ var BaseSprite = function () {
   return BaseSprite;
 }();
 
+
+
 var Ship = function (_BaseSprite) {
   _inherits(Ship, _BaseSprite);
 
@@ -395,20 +397,22 @@ var Ship = function (_BaseSprite) {
       _get(Ship.prototype.__proto__ || Object.getPrototypeOf(Ship.prototype), "update", this).call(this);
       this.thrusters = false;
       if (!this.dead) {
-        if (Key.isDown(this.keyUp)) {
+        // console.log('inside update', getAction());
+        // console.log('lookup', shipControls, shipControls.thrust.pressed);
+        if (Key.isDown(this.keyUp) || shipControls.fire.pressed) {
           // fire weapon
           this.fire();
         };
-        if (Key.isDown(this.keyDown)) {
+        if (Key.isDown(this.keyDown) || shipControls.thrust.pressed) {
           this.fireThrusters();
         };
-        if (Key.isDown(this.keyLeft) || Key.isDown(this.keyRight)) {
+        if (Key.isDown(this.keyLeft) || Key.isDown(this.keyRight) || shipControls.left.pressed || shipControls.right.pressed) {
           // rotate ship
-          this.rotation += Key.isDown(this.keyRight) ? this.rotationSpeed : -this.rotationSpeed;
+          this.rotation += Key.isDown(this.keyRight) || shipControls.right.pressed ? this.rotationSpeed : -this.rotationSpeed;
           this.rotation %= 2 * Math.PI;
           this.updateRotation();
         };
-        if (Key.isDown(this.hyperSpace)) {
+        if (Key.isDown(this.hyperSpace) || shipControls.hyperspaceJump.pressed) {
           // Do Hyperspace jump
           this.hyperSpace = true;
         };
@@ -490,7 +494,7 @@ var Ship = function (_BaseSprite) {
         var theta = Math.random() * 2 * Math.PI;
         var r = Math.random() * radius;
         var x = r * Math.cos(theta),
-            y = r * Math.sin(theta);
+          y = r * Math.sin(theta);
 
         array.push([[x, y], [x + 1, y + 1]]);
       }
@@ -662,7 +666,7 @@ var Asteroid = function (_BaseSprite3) {
       var blast2 = this.fillExplosion(spriteRadius * 2, ASTEROID_BREAK_SIZE);
       var blast3 = this.fillExplosion(spriteRadius / 2, ASTEROID_BREAK_SIZE);
       var empty = [];
-      if (this.size === BIG_ASTEROID) Game.bangLarge();else if (this.size === MED_ASTEROID) Game.bangMedium();else Game.bangSmall();
+      if (this.size === BIG_ASTEROID) Game.bangLarge(); else if (this.size === MED_ASTEROID) Game.bangMedium(); else Game.bangSmall();
       this.rotationSpeed = 0;
       this.showShape = blast0;
       setTimeout(function () {
@@ -687,7 +691,7 @@ var Asteroid = function (_BaseSprite3) {
         var theta = Math.random() * 2 * Math.PI;
         var r = Math.random() * radius;
         var x = r * Math.cos(theta),
-            y = r * Math.sin(theta);
+          y = r * Math.sin(theta);
 
         array.push([[x, y], [x + 1, y + 1]]);
       }
