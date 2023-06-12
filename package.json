@@ -12,7 +12,8 @@
     "dev": "NODE_ENV=dev pm2-dev start index.js --raw | pino-colada",
     "win-dev": "set NODE_ENV=dev&&pm2-dev start index.js --raw | pino-colada",
     "prod": "NODE_ENV=prod pm2-dev start index.js --raw | pino-colada",
-    "start": "pm2 start index.js --merge-logs && pm2 logs --raw"
+    "start": "pm2 start index.js --merge-logs && pm2 logs --raw",
+    "stop": "pm2 stop index"
   },
   "dependencies": {
     "airtable": "^0.12.1",
