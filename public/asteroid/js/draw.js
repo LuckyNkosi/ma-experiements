@@ -408,7 +408,8 @@ var Ship = function (_BaseSprite) {
         };
         if (Key.isDown(this.keyLeft) || Key.isDown(this.keyRight) || shipControls.left.pressed || shipControls.right.pressed) {
           // rotate ship
-          this.rotation += Key.isDown(this.keyRight) || shipControls.right.pressed ? this.rotationSpeed : -this.rotationSpeed;
+          let dirRight = !!(Key.isDown(this.keyRight) || shipControls.right.pressed);
+          this.rotation += dirRight ? this.rotationSpeed : -this.rotationSpeed;
           this.rotation %= 2 * Math.PI;
           this.updateRotation();
         };

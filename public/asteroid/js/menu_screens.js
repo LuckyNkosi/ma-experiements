@@ -20,10 +20,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 "use strict";
 
 // These are the positions of the game over menu items [horizontal,vertical]
-var gameOverPositions = [[240, 370], [300, 420]];
+var gameOverPositions = [[210, 370], [300, 420]];
 // These are the positions of the initial game menu items  [horizontal,vertical]
 var startScreenPositions = [[300, 280], [250, 330]];
 
+var CURRENT_EXPERIMENT = null;
 instructionsScreen.init = function () {
   instructionsScreen.asteroids = makeAsteroids(3, 0, 1);
 };
@@ -61,14 +62,17 @@ instructionsScreen.update = function () {
 startScreen.init = function () {
   startScreen.arrow = new ShipCursor(startScreenPositions, playerVectors, 3);
   startScreen.asteroids = makeAsteroids(5, 3, 3);
+  CURRENT_EXPERIMENT = experiments.splice(Math.floor(Math.random() * experiments.length), 1)[0];
 };
 startScreen.draw = function () {
+
   Game.context.clearRect(0, 0, Game.width, Game.height);
   startScreen.asteroids.forEach(function (asteroid) {
     return asteroid.draw();
   });
   startScreen.arrow.draw();
   writeCentered(80, "asteroids ", 5, 6);
+  writeCentered(180, `${CURRENT_EXPERIMENT.description}`, 3, 4);
   writeCentered(270, "PLAY", 2, 3);
   writeCentered(320, "play guide", 2, 3);
   writeCentered(450, "1 COIN 1 PLAY", 2.5, 3);
@@ -90,6 +94,9 @@ startScreen.update = function () {
 };
 
 gameOverScreen.init = function () {
+  updateTrackingState(ACTIVITY_TRACKING_STATES.default);
+
+  CURRENT_EXPERIMENT = experiments.splice(Math.floor(Math.random() * experiments.length), 1)[0];
   gameOverScreen.arrow = new ShipCursor(gameOverPositions, playerVectors, 3);
   gameOverScreen.asteroids = makeAsteroids(2, 2, 2);
   gameOverScreen.cursor = 0;
@@ -109,10 +116,11 @@ gameOverScreen.draw = function () {
   });
   gameOverScreen.arrow.draw();
   writeCentered(60, "GAME OVER", 5);
-  writeCentered(160, 'YOUR SCORE', 3);
+  writeCentered(160, "YOUR SCORE", 3);
   writeCentered(220, Game.score.score.toString(), 5);
-  writeCentered(360, "play again", 2);
+  writeCentered(360, CURRENT_EXPERIMENT ? "Next Challenge" : 'Free Play', 2);
   writeCentered(410, "menu", 2);
+  writeCentered(480, CURRENT_EXPERIMENT ? `Next: ${CURRENT_EXPERIMENT.description}` : 'Experiments COmpleted.', 2.5);
   writeCentered(660, "1979 Atari Inc", 1);
 };
 gameOverScreen.update = function () {

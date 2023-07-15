@@ -1,17 +1,20 @@
 const experiments = [
     {
         name: 'Drone - Gamepad',
+        logKey: 'droneGamePadLog',
         description: 'Fly the drone using a gamepad',
         done: false,
     },
     {
         name: 'Drone - Keyboard',
+        logKey: 'droneKeyboardLog',
         description: 'Fly the drone using a keyboard',
         done: false,
     },
     {
         name: 'Drone - Custom',
-        description: 'Fly the drone using your voice',
+        logKey: 'droneCustomLog',
+        description: 'Fly the drone using custom controller',
         done: false,
     }
 ]
@@ -49,13 +52,13 @@ const nextExperiment = () => {
         document.querySelector('#btnStartChallenge').disabled = true;
         document.querySelector('#btnConfigureControls').disabled = true;
         updateTrackingState(ACTIVITY_TRACKING_STATES.complete);
-        LogActivity('drone', 'complete');
+        window.location.href = '/asteroid';
+        // LogActivity('drone', 'complete');
         return;
     }
-    // let experiment = experiments.shift();
     //pick random experiment and remove it from the list
     let experiment = experiments.splice(Math.floor(Math.random() * experiments.length), 1)[0];
-
+    CURRENT_EXPERIMENT = experiment;
     document.querySelector('#experimentName').innerText = experiment.name;
     document.querySelector('#btnNextChallenge').disabled = true;
     document.querySelector('#btnStartChallenge').disabled = false;

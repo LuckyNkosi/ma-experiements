@@ -16,8 +16,8 @@ app.use('/drone', express.static(path.join(__dirname, 'drone')));
 app.use('/game', express.static(path.join(__dirname, 'asteroid')));
 
 app.post('/logActivity', async (req, res) => {
-    const { id, data } = req.body;
-    const result = await updateData('Participants', id, { droneLog: JSON.stringify(data) });
+    const { id, logKey, data } = req.body;
+    const result = await updateData('Participants', id, { [logKey]: JSON.stringify(data) });
     res.json({ res: result });
 })
 

@@ -25,16 +25,19 @@ const updateTrackingState = (newState) => {
 
 let ActivityLogs = [];
 const LogActivity = async (experiment, activity) => {
+    console.log('curr', CURRENT_EXPERIMENT);
     if (ACTIVITY_TRACKING === ACTIVITY_TRACKING_STATES.default) return; //don't log activity if not tracking
     const participant = getUser().userId;
     ActivityLogs.push({
         participant: [participant],
         experiment,
+        experimentDetails: CURRENT_EXPERIMENT,
         activity,
         elapsedTime
     });
     const data = {
         id: participant,
+        logKey: CURRENT_EXPERIMENT.logKey,
         data: ActivityLogs
     }
 

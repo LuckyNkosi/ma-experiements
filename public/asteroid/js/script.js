@@ -17,8 +17,49 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-"use strict";
+// "use strict";
+var experiments = [
+  {
+    name: 'Gamepad',
+    logKey: 'asteroidGamePadLog',
+    description: 'Play using a gamepad',
+    done: false,
+  },
+  {
+    name: 'Keyboard',
+    logKey: 'asteroidKeyboardLog',
+    description: 'Play using a keyboard',
+    done: false,
+  },
+  {
+    name: 'Custom',
+    logKey: 'asteroidCustomLog',
+    description: 'Play custom controller',
+    done: false,
+  }
+];
+const startExperiment = () => {
+  startTimer();
+  updateTrackingState(ACTIVITY_TRACKING_STATES.tracking);
+  LogActivity('drone', 'startExperiment');
+  // document.querySelector('#btnStartChallenge').disabled = true;
+  // document.querySelector('#btnConfigureControls').disabled = true;
 
+  // document.querySelector('#btnEndChallenge').disabled = false;
+  // droneInterfaceButtons.forEach(button => {
+  //   button.disabled = false;
+  // });
+}
+const endExperiment = () => {
+  updateTrackingState(ACTIVITY_TRACKING_STATES.trackingComplete);
+  document.querySelector('#btnEndChallenge').disabled = true;
+  document.querySelector('#btnNextChallenge').disabled = false;
+  droneInterfaceButtons.forEach(button => {
+    button.disabled = true;
+  });
+  LogActivity('drone', 'endExperiment');
+}
 function startAsteroids() {
+
   Game.start();
 }

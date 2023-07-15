@@ -336,4 +336,4 @@ const getRandomElement = (array) => {
 };
 const generateNewName = () => `${getRandomElement(words)}-${getRandomElement(names)}-${getRandomElement(animals)}`;
 
-module.exports = { generateNewName }
+module.exports = { generateNewName };

@@ -37,26 +37,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   <script src="js/game_functions.js"></script>
   <script src="js/menu_screens.js"></script>
   <script src="../controller.js"></script>
-  <!-- twitter -->
+  <script src="../manage-data.js" defer></script>
+  <script src="../logging.js" defer></script>
 
-  <meta name="twitter:description"
-    content="This is a modern recreation of the classic 1979 Atari space shoot-em up game">
-  <meta name="twitter:image"
-    content="https://github.com/philspil66/Asteroids-JS/raw/main/assets/graphics/asteroids_logo.png">
-  <!-- opengraph -->
-  <meta property="og:title" content="Asteroids - Janjoo Games" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://github.com/philspil66/Asteroids-JS" />
-  <meta property="og:image"
-    content="https://github.com/philspil66/Asteroids-JS/raw/main/assets/graphics/asteroids_logo.png" />
-  <meta property="og:image:width" content="625" />
-  <meta property="og:image:height" content="625" />
-  <meta property="og:description"
-    content="This is a modern recreation of the classic 1979 Atari space shoot-em up game" />
 </head>
 
 <body onload="startAsteroids()">
-
+  <section id="technicalInfo">
+    <p><label> user name: </label><span id="userName"></span></p>
+    <p><label> tracking: </label><span id="trackingState"></span></p>
+    <p><label> timer: </label><span id="elapsedTime"></span></p>
+  </section>
   <div class="container">
     <div id="game-frame">
     </div>

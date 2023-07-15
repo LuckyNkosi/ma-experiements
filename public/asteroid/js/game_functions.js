@@ -51,6 +51,8 @@ var HALO_SIZE = 70;
  * It also sets up other necessary properties for gameplay.
  */
 playScreen.init = function () {
+  startExperiment();
+
   // Create and initialize the player ship
   Game.player = new (Function.prototype.bind.apply(Ship, [null].concat(p1Spawn, [playerKeys, playerVectors, 1.5, Game.firePlayer])))();
   Game.player.updateRotation(Math.random() * Math.PI * 2);

@@ -151,3 +151,9 @@ body {
     /* align-content: center; */
     align-items: center;
 }
+
+#welcome {
+    display: flex;
+    flex-direction: column;
+    max-width: 60%;
+}
