@@ -41,7 +41,7 @@ var experiments = [
 const startExperiment = () => {
   startTimer();
   updateTrackingState(ACTIVITY_TRACKING_STATES.tracking);
-  LogActivity('drone', 'startExperiment');
+  LogActivity('game', 'startExperiment');
   // document.querySelector('#btnStartChallenge').disabled = true;
   // document.querySelector('#btnConfigureControls').disabled = true;
 
@@ -52,14 +52,16 @@ const startExperiment = () => {
 }
 const endExperiment = () => {
   updateTrackingState(ACTIVITY_TRACKING_STATES.trackingComplete);
-  document.querySelector('#btnEndChallenge').disabled = true;
-  document.querySelector('#btnNextChallenge').disabled = false;
-  droneInterfaceButtons.forEach(button => {
-    button.disabled = true;
-  });
-  LogActivity('drone', 'endExperiment');
+  LogActivity('game', 'endExperiment');
 }
 function startAsteroids() {
 
   Game.start();
+}
+onkeydown = (e) => {
+  console.log(ACTIVITY_TRACKING);
+  if (ACTIVITY_TRACKING === ACTIVITY_TRACKING_STATES.tracking) {
+    LogActivity('game', e.code);
+    console.log('keydown', e.code);
+  }
 }

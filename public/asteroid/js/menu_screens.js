@@ -94,8 +94,8 @@ startScreen.update = function () {
 };
 
 gameOverScreen.init = function () {
-  updateTrackingState(ACTIVITY_TRACKING_STATES.default);
-
+  // updateTrackingState(ACTIVITY_TRACKING_STATES.default);
+  endExperiment();
   CURRENT_EXPERIMENT = experiments.splice(Math.floor(Math.random() * experiments.length), 1)[0];
   gameOverScreen.arrow = new ShipCursor(gameOverPositions, playerVectors, 3);
   gameOverScreen.asteroids = makeAsteroids(2, 2, 2);

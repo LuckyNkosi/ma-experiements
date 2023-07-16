@@ -290,7 +290,8 @@ playScreen.update = function () {
   // 1. All asteroids are destroyed (Game.asteroids.length === 0)
   // 2. The saucer is destroyed (Game.saucer.dead)
   // 3. The loadAsteroids flag is set (playScreen.loadAsteroids)
-  if (Game.asteroids.length === 0 && Game.saucer.dead && playScreen.loadAsteroids) {
+  if (Game.asteroids.length === 0 && (Game.saucer.dead || Game.saucer.dead == undefined) && playScreen.loadAsteroids) {
+    console.log('next level activated');
     // Schedule the setup of the next level after a short delay
     setTimeout(function () {
       // Increment the game level
@@ -317,7 +318,7 @@ playScreen.update = function () {
   }
 
   // Check if the saucer is destroyed and a new saucer spawn is not already scheduled
-  if (Game.saucer.dead && !playScreen.sauceScheduled) {
+  if ((Game.saucer.dead) && !playScreen.sauceScheduled) {
     // Set the sauceScheduled flag to prevent multiple saucer spawns from being scheduled simultaneously
     playScreen.sauceScheduled = true;
 

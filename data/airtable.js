@@ -58,7 +58,7 @@ const updateData = async (tableName, id, data) => {
                 throw err;
                 return;
             }
-            console.log('record', record);
+            // console.log('record', record);
             resolve({
                 id: record.id, ...record.fields
             });
