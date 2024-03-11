@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 
 
-app.use(express.static('public'));
+app.use(express.static('docs'));
 app.use('/drone', express.static(path.join(__dirname, 'drone')));
 app.use('/game', express.static(path.join(__dirname, 'asteroid')));
 
