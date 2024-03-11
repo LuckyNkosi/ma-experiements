@@ -35,7 +35,7 @@ const start = async () => {
         localStorage.setItem('userName', data.name);
         localStorage.setItem('userId', data.id);
     }
-    window.location.href = '/drone';
+    window.location.href = '/blocks';
 }
 
 const getData = async (tableName) => {

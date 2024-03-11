@@ -33,6 +33,7 @@ const shipControls = {
 
 // Check for gamepad support
 if ("getGamepads" in navigator) {
+    console.log("Gamepad API supported");
     // Start listening for gamepad connections
     window.addEventListener("gamepadconnected", function (e) {
         console.log("Gamepad connected:", e.gamepad.id);
@@ -56,6 +57,7 @@ if ("getGamepads" in navigator) {
 
             //update reference to the buttons
             buttons.forEach((button, index) => {
+                // console.log('here');
                 controllerButtonsLookup[index].pressed = button.pressed;
                 if (button.pressed)
                     console.log(controllerButtonsLookup[index].key, button.pressed);
@@ -80,3 +82,5 @@ if ("getGamepads" in navigator) {
 } else {
     console.log("Gamepad API not supported");
 }
+
+console.log('called?');

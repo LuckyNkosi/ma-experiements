@@ -53,6 +53,6 @@ const errorHandling = (err, req, res, next) => {
 app.use(errorHandling);
 
 app.listen(PORT, () => {
-    logger.warn('App Started:// Ziyakhala ke manje 💫');
+    logger.warn('App Started:// 💫');
     logger.info(`http://localhost:${PORT}`);
 });
