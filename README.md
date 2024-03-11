@@ -18,17 +18,23 @@ Three types of controllers were used in the study: a keyboard, a gamepad, and a 
 
 ## Software Interaction
 
-The static (front-end) portion of the study is made available through Github Pages and can be accessed at the following URL: [https://lucky-nkosi.github.io/cross-device-controllers/](https://lucky-nkosi.github.io/cross-device-controllers/).
+The static (front-end) portion of the study is made available through Github Pages and can be accessed at the following URL: [https://luckynkosi.github.io/ma-experiements/](https://luckynkosi.github.io/ma-experiements/).
 
-## Getting Started
+## Running the project locally
 
 To get started with the study and access the software and data:
 
 1. Clone this repository to your local machine.
 2. Install Node.js if you haven't already.
 3. Navigate to the project directory in your terminal.
-4. Run `node server.js` to start the server.
+4. Run `node index.js` to start the server.
 5. Open your web browser and navigate to `http://localhost:3000` to access the static files served from the `/public` directory.
+6. You'll need an env file with your Airtable API key and base ID to access the data. Create a `.env` file in the root directory and add the following:
+
+```
+AIRTABLE_API_KEY=your_api_key
+AIRTABLE_BASE_ID=your_base_id
+```
 
 ## License
 
@@ -38,4 +44,4 @@ This research project is licensed under the MIT License. See the [LICENSE](LICEN
 
 For questions or inquiries about this research project, please contact Lucky Nkosi at [nhlanhla.nkosi4@students.wits.ac.za](mailto:nhlanhla.nkosi4@students.wits.ac.za).
 
-Thank you for your interest in "The Usability of Cross-device Controllers" study! We hope you find the software and data useful for your own research and exploration.
+Thank you for your interest in the "The Usability of Cross-device Controllers" study! We hope you find the software and data useful for your own research and exploration.
